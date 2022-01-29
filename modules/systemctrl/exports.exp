@@ -1,0 +1,42 @@
+# Define the exports for the prx
+PSP_BEGIN_EXPORTS
+
+# These four lines are mandatory (although you can add other functions like module_stop)
+# syslib is a psynonym for the single mandatory export.
+PSP_EXPORT_START(syslib, 0, 0x8000)
+PSP_EXPORT_FUNC_NID(module_start,0xD3744BE0)
+PSP_EXPORT_VAR_HASH(module_info)
+PSP_EXPORT_END
+
+PSP_EXPORT_START(SystemCtrlForKernel, 0, 0x0001)
+PSP_EXPORT_FUNC_HASH(typhoonGetVersion)
+PSP_EXPORT_FUNC_NID(sctrlHENPatchSyscall, 0x826668E9)
+PSP_EXPORT_FUNC_NID(sctrlHENFindFunction, 0x159AF5CC)
+PSP_EXPORT_FUNC_NID(sctrlHENFindDriver, 0x78E46415)
+PSP_EXPORT_FUNC_NID(SystemCtrlForKernel_B86E36D1, 0xB86E36D1)
+PSP_EXPORT_FUNC_NID(sctrlKernelSetUserLevel, 0xEB74FE45)
+PSP_EXPORT_FUNC_NID(sctrlHENSetMemory, 0x745286D1)
+PSP_EXPORT_FUNC_NID(sctrlKernelExitVSH, 0x2794CCF4)
+PSP_EXPORT_FUNC_HASH(sctrlRebootChickHEN)
+PSP_EXPORT_END
+
+PSP_EXPORT_START(SystemCtrlForUser, 0, 0x4001)
+PSP_EXPORT_FUNC_HASH(typhoonGetVersion)
+PSP_EXPORT_FUNC_NID(sctrlHENFindDriver, 0x78E46415)
+PSP_EXPORT_FUNC_NID(sctrlKernelSetUserLevel, 0xEB74FE45)
+PSP_EXPORT_FUNC_NID(sctrlHENSetMemory, 0x745286D1)
+PSP_EXPORT_FUNC_NID(sctrlKernelExitVSH, 0x2794CCF4)
+PSP_EXPORT_FUNC_HASH(sctrlRebootChickHEN)
+PSP_EXPORT_END
+
+PSP_EXPORT_START(KUBridge, 0, 0x4001)
+PSP_EXPORT_FUNC_NID(kuKernelGetModel, 0x24331850)
+PSP_EXPORT_FUNC_NID(kuKernelSetDdrMemoryProtection, 0xC4AF12AB)
+PSP_EXPORT_FUNC_NID(kuKernelGetUserLevel, 0xA2ABB6D3)
+PSP_EXPORT_FUNC_NID(kuKernelBootFrom, 0x60DDB4AE)
+PSP_EXPORT_FUNC_NID(KUBridge_1742445F, 0x1742445F)
+PSP_EXPORT_FUNC_NID(kuKernelInitApitype, 0x8E5A4057)
+PSP_EXPORT_FUNC_NID(kuKernelLoadModule, 0x4C25EA72)
+PSP_EXPORT_END
+
+PSP_END_EXPORTS
